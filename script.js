@@ -5,30 +5,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (hamburger && navMenu) {
         hamburger.addEventListener('click', () => {
-            navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+            navMenu.classList.toggle('active');
         });
-    }
 
-    // Contact form handling
-    const contactForm = document.getElementById('contactForm');
-    const formSuccess = document.getElementById('formSuccess');
-
-    if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-
-            if (name && email && message) {
-                contactForm.reset();
-                formSuccess.classList.remove('hidden');
-                
-                setTimeout(() => {
-                    formSuccess.classList.add('hidden');
-                }, 5000);
-            }
+        // Close menu when clicking a link
+        navMenu.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
         });
     }
 

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kelnix | Advanced Software Solutions & Intelligent Automation</title>
+    <title>Kelnix | Software Architecture & Concept Solutions</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,13 +17,13 @@
                 <span class="logo-symbol">&lt;/&gt;</span>
                 <span class="logo-text">KELNIX</span>
             </a>
-            <nav class="nav-menu">
+            <nav class="nav-menu" id="navMenu">
                 <a href="#about" class="nav-link">About</a>
                 <a href="#services" class="nav-link">Services</a>
-                <a href="#solutions" class="nav-link">Solutions</a>
-                <a href="#contact" class="nav-link cta-btn">Get in Touch</a>
+                <a href="#solutions" class="nav-link">Concept Projects</a>
+                <a href="#contact" class="nav-link cta-btn">Collaboration</a>
             </nav>
-            <div class="hamburger">
+            <div class="hamburger" id="hamburger" aria-label="Toggle navigation" role="button" tabindex="0">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -35,26 +35,12 @@
     <section class="hero">
         <div class="hero-glow"></div>
         <div class="container hero-content">
-            <div class="badge">Next-Gen Technology & Intelligence</div>
-            <h1>Engineering the Future of <span class="gradient-text">Digital Systems</span></h1>
-            <p>Kelnix delivers enterprise-grade software architecture, high-performance automated intelligence, and scalable lead discovery platforms designed to accelerate business growth.</p>
+            <div class="badge">Software Architecture & Engineering</div>
+            <h1>Engineering Clean Solutions & <span class="gradient-text">Concept Systems</span></h1>
+            <p>Kelnix focuses on software design patterns, structured system architecture, and experimental prototype development.</p>
             <div class="hero-actions">
-                <a href="#solutions" class="btn btn-primary">Explore Solutions</a>
-                <a href="#contact" class="btn btn-secondary">Schedule Consultation</a>
-            </div>
-            <div class="hero-stats">
-                <div class="stat-item">
-                    <span class="stat-number">99.9%</span>
-                    <span class="stat-label">Uptime Reliability</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">10x</span>
-                    <span class="stat-label">Workflow Acceleration</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">24/7</span>
-                    <span class="stat-label">Automated Operations</span>
-                </div>
+                <a href="#solutions" class="btn btn-primary">View Concept Projects</a>
+                <a href="#contact" class="btn btn-secondary">Collaborate via GitHub</a>
             </div>
         </div>
     </section>
@@ -63,25 +49,25 @@
     <section id="about" class="section about">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">Who We Are</span>
-                <h2>Precision Engineering & Innovation</h2>
-                <p>At Kelnix, we combine rigorous technical execution with modern architectural paradigms to solve complex operational challenges.</p>
+                <span class="section-tag">Overview</span>
+                <h2>Engineering Principles</h2>
+                <p>Kelnix adheres to rigorous modular design, maintainable codebase structures, and transparent collaboration.</p>
             </div>
             <div class="about-grid">
                 <div class="about-card">
                     <div class="card-icon">⚡</div>
-                    <h3>High Performance</h3>
-                    <p>Optimized algorithms and lightweight infrastructure ensuring lightning-fast execution across all distributed systems.</p>
+                    <h3>Modular Design</h3>
+                    <p>Building decoupled components and clear interfaces to ensure maintainability and scalability.</p>
                 </div>
                 <div class="about-card">
                     <div class="card-icon">🛡️</div>
-                    <h3>Enterprise Security</h3>
-                    <p>Robust security baselines, encrypted data pipelines, and hardened execution environments protecting critical assets.</p>
+                    <h3>Security Mindset</h3>
+                    <p>Applying defensive programming practices and secure credential management across all repositories.</p>
                 </div>
                 <div class="about-card">
                     <div class="card-icon">🔄</div>
-                    <h3>Seamless Integration</h3>
-                    <p>Modular APIs and adaptable frameworks designed to integrate effortlessly into existing enterprise workflows.</p>
+                    <h3>Open Collaboration</h3>
+                    <p>Designed for seamless review, inspection, and iteration by engineering peers and automated agents.</p>
                 </div>
             </div>
         </div>
@@ -91,39 +77,39 @@
     <section id="services" class="section services">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">Core Capabilities</span>
-                <h2>Comprehensive Technical Services</h2>
-                <p>End-to-end expertise tailored to modern digital enterprises.</p>
+                <span class="section-tag">Capabilities</span>
+                <h2>Technical Focus Areas</h2>
+                <p>Core areas of architectural study and implementation.</p>
             </div>
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-num">01</div>
                     <h3>Software Architecture</h3>
-                    <p>Custom backend systems, scalable cloud microservices, and robust API design built for resilience and high throughput.</p>
+                    <p>Structuring clean application codebases, separating concerns, and designing extensible interfaces.</p>
                     <ul class="service-list">
-                        <li>Distributed Systems</li>
-                        <li>Microservices & APIs</li>
-                        <li>Performance Tuning</li>
+                        <li>System Decomposition</li>
+                        <li>API Design Patterns</li>
+                        <li>Code Quality & Linting</li>
                     </ul>
                 </div>
                 <div class="service-card">
                     <div class="service-num">02</div>
-                    <h3>Intelligent Automation</h3>
-                    <p>Autonomous agents, data collection pipelines, and intelligent processing systems that eliminate manual bottlenecks.</p>
+                    <h3>Automation & Tooling</h3>
+                    <p>Building auxiliary scripts, pipeline automation, and workflow utilities to streamline development.</p>
                     <ul class="service-list">
-                        <li>Workflow Orchestration</li>
-                        <li>Data Scraping & Discovery</li>
-                        <li>Custom AI Agents</li>
+                        <li>CLI Tools & Utilities</li>
+                        <li>Build & Test Automation</li>
+                        <li>Data Processing Scripts</li>
                     </ul>
                 </div>
                 <div class="service-card">
                     <div class="service-num">03</div>
-                    <h3>Security & Auditing</h3>
-                    <p>Comprehensive vulnerability assessment, code review, and penetration testing to safeguard digital infrastructure.</p>
+                    <h3>Prototype Development</h3>
+                    <p>Rapidly prototyping experimental software designs, frontend concepts, and integration tests.</p>
                     <ul class="service-list">
-                        <li>Code Audits & Review</li>
-                        <li>Threat Modeling</li>
-                        <li>Hardening & Compliance</li>
+                        <li>Proof-of-Concept Apps</li>
+                        <li>Interface Layouts</li>
+                        <li>Evaluation & Testing</li>
                     </ul>
                 </div>
             </div>
@@ -134,31 +120,29 @@
     <section id="solutions" class="section solutions">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">Featured Products</span>
-                <h2>Flagship Platforms</h2>
-                <p>Production-ready solutions driving real-world business value.</p>
+                <span class="section-tag">Portfolio</span>
+                <h2>Concept Projects & Demonstrations</h2>
+                <p>Experimental prototypes and architectural demonstrations.</p>
             </div>
             <div class="solutions-grid">
                 <div class="solution-card">
-                    <div class="solution-badge">Active Engine</div>
+                    <div class="solution-badge">Concept / Demonstration</div>
                     <h3>Kelnix Lead Finder</h3>
-                    <p>An advanced multi-source intelligence and lead discovery engine built for precision target acquisition, automated enrichment, and real-time pipeline integration.</p>
+                    <p>An experimental workflow script designed for local data collection and structured record organization. Maintained strictly as a technical demonstration project.</p>
                     <div class="tech-tags">
                         <span>Python</span>
                         <span>Asyncio</span>
-                        <span>API Integration</span>
-                        <span>Analytics</span>
+                        <span>Demonstration</span>
                     </div>
                 </div>
                 <div class="solution-card">
-                    <div class="solution-badge">Enterprise</div>
+                    <div class="solution-badge">Concept / Demonstration</div>
                     <h3>Kelnix Automated Core</h3>
-                    <p>Modular enterprise automation framework offering high-concurrency task scheduling, secure execution sandboxes, and robust telemetry monitoring.</p>
+                    <p>A modular prototype framework illustrating task scheduling concepts and process organization in TypeScript.</p>
                     <div class="tech-tags">
                         <span>TypeScript</span>
                         <span>Node.js</span>
-                        <span>Docker</span>
-                        <span>Redis</span>
+                        <span>Prototype</span>
                     </div>
                 </div>
             </div>
@@ -170,36 +154,23 @@
         <div class="container">
             <div class="contact-box">
                 <div class="contact-info">
-                    <span class="section-tag">Get in Touch</span>
-                    <h2>Ready to Elevate Your Technology?</h2>
-                    <p>Partner with Kelnix for your next mission-critical project or architectural transformation.</p>
+                    <span class="section-tag">Collaboration</span>
+                    <h2>Contribute & Collaborate</h2>
+                    <p>This repository is configured for peer review and collaboration via GitHub. You can inspect code, open issues, or submit pull requests directly on GitHub.</p>
                     <div class="contact-details">
                         <div class="detail-item">
-                            <span class="icon">📧</span>
-                            <span>contact@kelnix.tech</span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="icon">📍</span>
-                            <span>Global Operations & Engineering</span>
+                            <span class="icon">🐙</span>
+                            <a href="https://github.com/Jonathan97k/kelnix" target="_blank" rel="noopener" class="repo-link">GitHub Repository</a>
                         </div>
                     </div>
                 </div>
-                <form class="contact-form" id="contactForm">
-                    <div class="form-group">
-                        <label for="name">Your Name</label>
-                        <input type="text" id="name" required placeholder="John Doe">
+                <div class="contact-notice">
+                    <h3>Collaboration Guidelines</h3>
+                    <p>Direct contact forms are not active on this concept site. All collaboration, issue tracking, and code reviews take place within the GitHub repository interface.</p>
+                    <div class="notice-box">
+                        <span>💡 Tip: Use GitHub Issues and Pull Requests to propose changes or report findings.</span>
                     </div>
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" required placeholder="john@company.com">
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Project Details</label>
-                        <textarea id="message" rows="4" required placeholder="Tell us about your project requirements..."></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary full-width">Send Message</button>
-                    <div id="formSuccess" class="form-success hidden">Thank you! Your message has been received.</div>
-                </form>
+                </div>
             </div>
         </div>
     </section>
@@ -210,13 +181,13 @@
             <div class="footer-brand">
                 <span class="logo-symbol">&lt;/&gt;</span>
                 <span class="logo-text">KELNIX</span>
-                <p>&copy; 2026 Kelnix. All rights reserved. Advanced Software Solutions.</p>
+                <p>&copy; 2026 Kelnix. Concept portfolio and architectural repository.</p>
             </div>
             <div class="footer-links">
                 <a href="#about">About</a>
                 <a href="#services">Services</a>
-                <a href="#solutions">Solutions</a>
-                <a href="#contact">Contact</a>
+                <a href="#solutions">Concept Projects</a>
+                <a href="#contact">Collaboration</a>
             </div>
         </div>
     </footer>
