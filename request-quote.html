@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request a Project Quote | Kelnix</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="ambient-bg"><div class="glow-orb orb-1"></div><div class="glow-orb orb-2"></div></div>
+    <header class="header">
+        <div class="nav-container">
+            <a href="index.html" class="logo"><span class="logo-symbol">&lt;/&gt;</span><span class="logo-text">KELNIX</span></a>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="index.html#services" class="nav-link">Services</a>
+                <a href="portfolio.html" class="nav-link">Portfolio</a>
+                <a href="https://wa.me/265882986170" target="_blank" rel="noopener" class="nav-link cta-btn">WhatsApp +265 882 986 170</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" style="padding-top: 9rem;">
+        <div class="container hero-content" style="max-width: 800px; text-align: left;">
+            <span class="section-tag">Project Enquiry</span>
+            <h1 style="font-size: 3rem; margin-bottom: 1rem;">Let's Build Your <span class="gradient-text">Digital Solution</span></h1>
+            <p style="font-size: 1.15rem; color: var(--text-muted); margin-bottom: 2.5rem;">Complete the project enquiry form below or connect instantly with us on WhatsApp at +265 882 986 170.</p>
+            
+            <div class="glass-panel" style="padding: 3rem; border-radius: 24px;">
+                <form id="quoteForm" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                        <div class="form-group">
+                            <label for="fullName" style="display: block; font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem;">Full Name *</label>
+                            <input type="text" id="fullName" required placeholder="John Doe" style="width: 100%; padding: 0.9rem; background: var(--bg-primary); border: 1px solid var(--border-color); border-radius: 10px; color: var(--text-main);">
+                        </div>
+                        <div class="form-group">
+                            <label for="businessName" style="display: block; font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem;">Business / Organization</label>
+                            <input type="text" id="businessName" placeholder="Company Ltd" style="width: 100%; padding: 0.9rem; background: var(--bg-primary); border: 1px solid var(--border-color); border-radius: 10px; color: var(--text-main);">
+                        </div>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                        <div class="form-group">
+                            <label for="email" style="display: block; font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem;">Email Address *</label>
+                            <input type="email" id="email" required placeholder="john@company.com" style="width: 100%; padding: 0.9rem; background: var(--bg-primary); border: 1px solid var(--border-color); border-radius: 10px; color: var(--text-main);">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" style="display: block; font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem;">Phone / WhatsApp *</label>
+                            <input type="text" id="phone" required placeholder="+265..." style="width: 100%; padding: 0.9rem; background: var(--bg-primary); border: 1px solid var(--border-color); border-radius: 10px; color: var(--text-main);">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="serviceCategory" style="display: block; font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem;">Primary Service Required *</label>
+                        <select id="serviceCategory" required style="width: 100%; padding: 0.9rem; background: var(--bg-primary); border: 1px solid var(--border-color); border-radius: 10px; color: var(--text-main);">
+                            <option value="">Select a service division...</option>
+                            <option value="automation">01. Business Automation & AI Integration</option>
+                            <option value="website">02. Website Development</option>
+                            <option value="application">03. Application & Software Development</option>
+                            <option value="lead-gen">04. Lead Generation & Business Intelligence</option>
+                            <option value="data">05. Data Analytics & Solutions</option>
+                            <option value="clipping">06. Content Clipping & Video Repurposing</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="projectDetails" style="display: block; font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem;">Project Scope & Requirements *</label>
+                        <textarea id="projectDetails" rows="5" required placeholder="Describe your business challenge, goals, and desired deliverables..." style="width: 100%; padding: 0.9rem; background: var(--bg-primary); border: 1px solid var(--border-color); border-radius: 10px; color: var(--text-main); font-family: var(--font-sans);"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1rem;">Submit Enquiry</button>
+                    <div id="successMessage" class="hidden" style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); color: #10b981; padding: 1rem; border-radius: 10px; text-align: center; font-weight: 500;">
+                        Thank you! Your enquiry has been received. We will contact you shortly or you can message us directly on WhatsApp: <a href="https://wa.me/265882986170" target="_blank" style="color: inherit; text-decoration: underline;">+265 882 986 170</a>.
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer" style="margin-top: 6rem;">
+        <div class="container footer-container">
+            <div class="footer-brand"><span class="logo-symbol">&lt;/&gt;</span><span class="logo-text">KELNIX</span><p>&copy; 2026 Kelnix. Digital systems. Intelligent solutions. Business growth.</p></div>
+            <div class="footer-links"><a href="index.html">Home</a><a href="https://wa.me/265882986170" target="_blank" rel="noopener">WhatsApp</a></div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('quoteForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            document.getElementById('successMessage').classList.remove('hidden');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
