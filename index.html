@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Ambient Background Gradients -->
+    <!-- Ambient Background Gradients & Grid -->
     <div class="ambient-bg">
         <div class="glow-orb orb-1"></div>
         <div class="glow-orb orb-2"></div>
@@ -27,6 +27,7 @@
                 <a href="#about" class="nav-link">About</a>
                 <a href="#services" class="nav-link">Services</a>
                 <a href="#solutions" class="nav-link">Demonstrations</a>
+                <a href="request-quote.html" class="nav-link">Request Quote</a>
                 <a href="https://wa.me/265882986170" target="_blank" rel="noopener" class="nav-link cta-btn">WhatsApp +265 882 986 170</a>
             </nav>
             <div class="hamburger" id="hamburger" aria-label="Toggle navigation" role="button" tabindex="0">
@@ -48,7 +49,7 @@
             <div class="hero-actions animate-fade">
                 <a href="#services" class="btn btn-primary">Explore Services</a>
                 <a href="https://wa.me/265882986170" target="_blank" rel="noopener" class="btn btn-secondary">
-                    💬 Chat on WhatsApp
+                    💬 Chat on WhatsApp (+265 882 986 170)
                 </a>
             </div>
 
@@ -81,20 +82,35 @@
                 <p>We combine software engineering, automation, data analytics, and digital strategy to solve real operational challenges.</p>
             </div>
             <div class="about-grid">
-                <div class="about-card glass-panel">
-                    <div class="card-icon-wrapper">⚡</div>
-                    <h3>Practical Innovation</h3>
-                    <p>Delivering robust, maintainable technology solutions that directly address business objectives without unnecessary complexity.</p>
+                <div class="card-with-photo glass-panel">
+                    <div class="card-photo-banner banner-auto">
+                        <div class="banner-overlay"></div>
+                        <div class="banner-icon">⚡</div>
+                    </div>
+                    <div class="card-body">
+                        <h3>Practical Innovation</h3>
+                        <p>Delivering robust, maintainable technology solutions that directly address business objectives without unnecessary complexity.</p>
+                    </div>
                 </div>
-                <div class="about-card glass-panel">
-                    <div class="card-icon-wrapper">🛡️</div>
-                    <h3>Enterprise Standards</h3>
-                    <p>Applying strict security baselines, modular architecture, and reliable performance standards to every project.</p>
+                <div class="card-with-photo glass-panel">
+                    <div class="card-photo-banner banner-web">
+                        <div class="banner-overlay"></div>
+                        <div class="banner-icon">🛡️</div>
+                    </div>
+                    <div class="card-body">
+                        <h3>Enterprise Standards</h3>
+                        <p>Applying strict security baselines, modular architecture, and reliable performance standards to every project.</p>
+                    </div>
                 </div>
-                <div class="about-card glass-panel">
-                    <div class="card-icon-wrapper">🌐</div>
-                    <h3>Local & Global Reach</h3>
-                    <p>Based in Malawi with full capability to deliver high-performance digital systems for regional and international clients.</p>
+                <div class="card-with-photo glass-panel">
+                    <div class="card-photo-banner banner-app">
+                        <div class="banner-overlay"></div>
+                        <div class="banner-icon">🌐</div>
+                    </div>
+                    <div class="card-body">
+                        <h3>Local & Global Reach</h3>
+                        <p>Based in Malawi with full capability to deliver high-performance digital systems for regional and international clients.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -109,65 +125,95 @@
                 <p>Comprehensive technology services designed for modern enterprises.</p>
             </div>
             <div class="services-grid">
-                <div class="service-card glass-panel">
-                    <div class="service-num">01</div>
-                    <h3>Business Automation & AI</h3>
-                    <p>WhatsApp business automation, AI customer assistants, n8n workflows, CRM integration, and document processing.</p>
-                    <ul class="service-list">
-                        <li>AI Chatbots & Agents</li>
-                        <li>Workflow Orchestration</li>
-                        <li>Automated Reports & Invoices</li>
-                    </ul>
+                <div class="card-with-photo glass-panel">
+                    <div class="card-photo-banner banner-auto">
+                        <div class="banner-overlay"></div>
+                        <div class="banner-icon">🤖</div>
+                    </div>
+                    <div class="card-body">
+                        <h3>01. Automation & AI</h3>
+                        <p>WhatsApp business automation, AI customer assistants, n8n workflows, CRM integration, and document processing.</p>
+                        <ul class="service-list">
+                            <li>AI Chatbots & Agents</li>
+                            <li>Workflow Orchestration</li>
+                            <li>Automated Reports & Invoices</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="service-card glass-panel">
-                    <div class="service-num">02</div>
-                    <h3>Website Development</h3>
-                    <p>Professional corporate websites, e-commerce stores, school portals, booking platforms, and high-converting landing pages.</p>
-                    <ul class="service-list">
-                        <li>Corporate & E-commerce</li>
-                        <li>SEO & Performance</li>
-                        <li>Redesigns & Maintenance</li>
-                    </ul>
+                <div class="card-with-photo glass-panel">
+                    <div class="card-photo-banner banner-web">
+                        <div class="banner-overlay"></div>
+                        <div class="banner-icon">💻</div>
+                    </div>
+                    <div class="card-body">
+                        <h3>02. Website Development</h3>
+                        <p>Professional corporate websites, e-commerce stores, school portals, booking platforms, and high-converting landing pages.</p>
+                        <ul class="service-list">
+                            <li>Corporate & E-commerce</li>
+                            <li>SEO & Performance</li>
+                            <li>Redesigns & Maintenance</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="service-card glass-panel">
-                    <div class="service-num">03</div>
-                    <h3>Application & Software</h3>
-                    <p>Custom web apps, PWAs, inventory management systems, school portals, admin dashboards, and internal business tools.</p>
-                    <ul class="service-list">
-                        <li>SaaS Development</li>
-                        <li>Custom Web Apps</li>
-                        <li>Database-Driven Dashboards</li>
-                    </ul>
+                <div class="card-with-photo glass-panel">
+                    <div class="card-photo-banner banner-app">
+                        <div class="banner-overlay"></div>
+                        <div class="banner-icon">📱</div>
+                    </div>
+                    <div class="card-body">
+                        <h3>03. Application & Software</h3>
+                        <p>Custom web apps, PWAs, inventory management systems, school portals, admin dashboards, and internal business tools.</p>
+                        <ul class="service-list">
+                            <li>SaaS Development</li>
+                            <li>Custom Web Apps</li>
+                            <li>Database Dashboards</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="service-card glass-panel">
-                    <div class="service-num">04</div>
-                    <h3>Lead Generation & BI</h3>
-                    <p>B2B prospect research, lead identification, qualification pipelines, company database preparation, and outreach workflows.</p>
-                    <ul class="service-list">
-                        <li>Prospect Research</li>
-                        <li>Pipeline Management</li>
-                        <li>CRM Setup & Strategy</li>
-                    </ul>
+                <div class="card-with-photo glass-panel">
+                    <div class="card-photo-banner banner-lead">
+                        <div class="banner-overlay"></div>
+                        <div class="banner-icon">🎯</div>
+                    </div>
+                    <div class="card-body">
+                        <h3>04. Lead Generation & BI</h3>
+                        <p>B2B prospect research, lead identification, qualification pipelines, company database preparation, and outreach workflows.</p>
+                        <ul class="service-list">
+                            <li>Prospect Research</li>
+                            <li>Pipeline Management</li>
+                            <li>CRM Setup & Strategy</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="service-card glass-panel">
-                    <div class="service-num">05</div>
-                    <h3>Data Analytics & Solutions</h3>
-                    <p>Excel data analysis, data cleaning, statistical modelling, executive dashboards, and management reporting.</p>
-                    <ul class="service-list">
-                        <li>Data Cleaning & Validation</li>
-                        <li>Executive Dashboards</li>
-                        <li>KPI Development</li>
-                    </ul>
+                <div class="card-with-photo glass-panel">
+                    <div class="card-photo-banner banner-data">
+                        <div class="banner-overlay"></div>
+                        <div class="banner-icon">📊</div>
+                    </div>
+                    <div class="card-body">
+                        <h3>05. Data Analytics</h3>
+                        <p>Excel data analysis, data cleaning, statistical modelling, executive dashboards, and management reporting.</p>
+                        <ul class="service-list">
+                            <li>Data Cleaning & Validation</li>
+                            <li>Executive Dashboards</li>
+                            <li>KPI Development</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="service-card glass-panel">
-                    <div class="service-num">06</div>
-                    <h3>Content Clipping & Video</h3>
-                    <p>Specialist video repurposing, podcast clipping, TikTok / Reels / Shorts editing, and professional captioning.</p>
-                    <ul class="service-list">
-                        <li>Short-Form Editing</li>
-                        <li>Podcast Clipping</li>
-                        <li>Multi-Platform Formatting</li>
-                    </ul>
+                <div class="card-with-photo glass-panel">
+                    <div class="card-photo-banner banner-video">
+                        <div class="banner-overlay"></div>
+                        <div class="banner-icon">🎬</div>
+                    </div>
+                    <div class="card-body">
+                        <h3>06. Content Clipping</h3>
+                        <p>Specialist video repurposing, podcast clipping, TikTok / Reels / Shorts editing, and professional captioning.</p>
+                        <ul class="service-list">
+                            <li>Short-Form Editing</li>
+                            <li>Podcast Clipping</li>
+                            <li>Multi-Platform Formatting</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -182,54 +228,62 @@
                 <p>Interactive demonstration models illustrating Kelnix engineering capabilities.</p>
             </div>
             <div class="solutions-grid">
-                <div class="solution-card glass-panel">
-                    <div class="solution-badge">Demonstration</div>
-                    <h3>Kelnix Lead Discovery Engine</h3>
-                    <p>Multi-source business intelligence pipeline capturing public directory records and structuring lead qualification queues.</p>
-                    <div class="tech-tags">
-                        <span>Python</span>
-                        <span>Asyncio</span>
-                        <span>Data Pipeline</span>
+                <div class="card-with-photo glass-panel">
+                    <div class="card-photo-banner banner-lead">
+                        <div class="solution-badge">Demonstration</div>
+                        <div class="banner-overlay"></div>
+                        <div class="banner-icon">🔍</div>
+                    </div>
+                    <div class="card-body">
+                        <h3>Kelnix Lead Discovery Engine</h3>
+                        <p>Multi-source business intelligence pipeline capturing public directory records and structuring lead qualification queues.</p>
+                        <div class="tech-tags">
+                            <span>Python</span>
+                            <span>Asyncio</span>
+                            <span>Data Pipeline</span>
+                        </div>
                     </div>
                 </div>
-                <div class="solution-card glass-panel">
-                    <div class="solution-badge">Demonstration</div>
-                    <h3>Business Automation Core</h3>
-                    <p>Automated webhook dispatcher handling customer enquiries, logging payloads, and triggering administrative tasks.</p>
-                    <div class="tech-tags">
-                        <span>TypeScript</span>
-                        <span>Node.js</span>
-                        <span>n8n Integration</span>
+                <div class="card-with-photo glass-panel">
+                    <div class="card-photo-banner banner-auto">
+                        <div class="solution-badge">Demonstration</div>
+                        <div class="banner-overlay"></div>
+                        <div class="banner-icon">⚙️</div>
+                    </div>
+                    <div class="card-body">
+                        <h3>Business Automation Core</h3>
+                        <p>Automated webhook dispatcher handling customer enquiries, logging payloads, and triggering administrative tasks.</p>
+                        <div class="tech-tags">
+                            <span>TypeScript</span>
+                            <span>Node.js</span>
+                            <span>n8n Integration</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Collaboration & Contact Section -->
+    <!-- Contact & Consultation Section -->
     <section id="contact" class="section contact">
         <div class="container">
             <div class="contact-box glass-panel">
                 <div class="contact-info">
                     <span class="section-tag">Start Your Project</span>
                     <h2>Ready to Build Something Remarkable?</h2>
-                    <p>Contact Kelnix directly via WhatsApp or inspect our open collaboration repository on GitHub.</p>
+                    <p>Connect instantly with Kelnix via WhatsApp or request a detailed project quote online.</p>
                     <div class="contact-details">
                         <div class="detail-item">
                             <span class="icon">💬</span>
-                            <a href="https://wa.me/265882986170" target="_blank" rel="noopener" class="repo-link">WhatsApp: +265 882 986 170</a>
-                        </div>
-                        <div class="detail-item">
-                            <span class="icon">🐙</span>
-                            <a href="https://github.com/Jonathan97k/kelnix" target="_blank" rel="noopener" class="repo-link">GitHub: Jonathan97k/kelnix</a>
+                            <a href="https://wa.me/265882986170" target="_blank" rel="noopener" class="whatsapp-link">WhatsApp: +265 882 986 170</a>
                         </div>
                     </div>
                 </div>
                 <div class="contact-notice">
                     <h3>Direct Consultation</h3>
-                    <p>Whether you need business automation, a high-performance web app, or data analytics, connect with us instantly.</p>
+                    <p>Whether you need business automation, a high-performance web app, or data analytics, message us on WhatsApp.</p>
                     <div class="notice-box">
-                        <a href="https://wa.me/265882986170" target="_blank" rel="noopener" style="color: var(--accent-primary); text-decoration: none; font-weight: 700;">Open WhatsApp Chat →</a>
+                        <a href="https://wa.me/265882986170" target="_blank" rel="noopener" style="color: #10b981; text-decoration: none; font-weight: 700;">Open WhatsApp Chat (+265 882 986 170) →</a>
                     </div>
                 </div>
             </div>
@@ -248,6 +302,7 @@
                 <a href="#about">About</a>
                 <a href="#services">Services</a>
                 <a href="#solutions">Demonstrations</a>
+                <a href="request-quote.html">Request Quote</a>
                 <a href="https://wa.me/265882986170" target="_blank" rel="noopener">WhatsApp</a>
             </div>
         </div>

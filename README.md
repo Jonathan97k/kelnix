@@ -11,11 +11,13 @@ Official repository for **Kelnix**, providing technology solutions, software arc
 ## 🛠️ Project Structure
 ```text
 kelnix-website/
-├── index.html       # Landing page & platform interface
-├── styles.css       # Modern glassmorphism & responsive design system
-├── script.js        # UI interaction & navigation logic
-├── vercel.json      # Vercel deployment routing configuration
-└── README.md        # Repository documentation
+├── index.html         # Landing page & platform interface
+├── styles.css         # Modern glassmorphism & responsive design system
+├── script.js          # UI interaction, visitor analytics & AI chat assistant
+├── portfolio.html     # Working system prototypes & demonstration lab
+├── request-quote.html # Project enquiry & quote request system
+├── vercel.json        # Vercel deployment routing configuration
+└── README.md          # Repository documentation
 ```
 
 ## 📦 Deployment
