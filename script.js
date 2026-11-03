@@ -37,38 +37,15 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function initVisitorAnalytics() {
-    try {
-        let sessionId = localStorage.getItem('kelnix_session_id');
-        if (!sessionId) {
-            sessionId = 'klx_ses_' + Math.random().toString(36.substring(2, 15)) + Date.now().toString(36);
-            localStorage.setItem('kelnix_session_id', sessionId);
-        }
-
-        const visitData = {
-            sessionId: sessionId,
-            landingPage: window.location.pathname,
-            referrer: document.referrer || 'Direct',
-            userAgent: navigator.userAgent,
-            timestamp: new Date().toISOString()
-        };
-
-        // Simulated privacy-conscious IP location check
-        fetch('https://ipapi.co/json/')
-            .then(res => res.json())
-            .then(data => {
-                visitData.country = data.country_name || 'Unknown';
-                visitData.region = data.region || 'Unknown';
-                visitData.city = data.city || 'Unknown';
-                console.log('[Kelnix Analytics] Session recorded:', visitData);
-            })
-            .catch(() => {
-                visitData.country = 'Malawi';
-                visitData.city = 'Lilongwe / Blantyre';
-                console.log('[Kelnix Analytics] Session recorded (Fallback):', visitData);
-            });
-    } catch (err) {
-        console.error('[Kelnix Analytics error]', err);
-    }
+    // Vercel Web Analytics provides real, aggregated traffic reporting once enabled
+    // for this project in the Vercel dashboard. No IP geolocation service is called here.
+    if (document.querySelector('script[data-kelnix-vercel-insights]')) return;
+    const analyticsScript = document.createElement('script');
+    analyticsScript.defer = true;
+    analyticsScript.src = '/_vercel/insights/script.js';
+    analyticsScript.dataset.kelnixVercelInsights = 'true';
+    analyticsScript.onerror = () => console.info('[Kelnix] Enable Web Analytics in the Vercel project dashboard to view traffic reports.');
+    document.head.appendChild(analyticsScript);
 }
 
 function initAIChatWidget() {
