@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Request a professional website or digital solution from Kelnix. No technical knowledge, finished copy or professional photos required.">
-  <title>Request a Website or Digital Service | Kelnix Malawi</title>
+  <meta name="description" content="Request a professional website or digital solution from Kelnix, serving Malawi and international clients. No technical knowledge, finished copy or professional photos required.">
+  <title>Request a Website or Digital Service | Kelnix Worldwide</title>
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://kelnix.vercel.app/request-quote">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Start a Project with Kelnix | Malawi">
+  <meta property="og:title" content="Start a Project with Kelnix | Worldwide">
   <meta property="og:description" content="Request a business website, application, AI automation or digital service from Kelnix. Single-page business websites start from MK 50,000.">
   <meta property="og:url" content="https://kelnix.vercel.app/request-quote">
   <link rel="stylesheet" href="styles.css">
@@ -49,7 +49,7 @@
       <div class="container">
         <span class="section-tag">Start a project with Kelnix</span>
         <h1 style="font-size:3.5rem;max-width:850px;margin-bottom:1rem">Tell us what your business <span class="gradient-text">needs next.</span></h1>
-        <p style="font-size:1.15rem;color:var(--text-muted);max-width:760px;margin-bottom:2.5rem">A professional website can start with just an idea. You do not need finished text, professional photos, or technical knowledge. Share a few details and we will help shape the next steps.</p>
+        <p style="font-size:1.15rem;color:var(--text-muted);max-width:760px;margin-bottom:2.5rem">A professional website can start with just an idea. You do not need finished text, professional photos, or technical knowledge. Share a few details, including your country and preferred contact method, and we will help shape the next steps. International enquiries are welcome.</p>
 
         <div class="request-layout">
           <section class="glass-panel request-panel" aria-labelledby="form-title">
@@ -62,9 +62,12 @@
                 <div class="field"><label for="businessName">Business or organization</label><input id="businessName" name="businessName" autocomplete="organization" maxlength="100" placeholder="Business name (if applicable)"></div>
               </div>
               <div class="form-grid">
+                <div class="field"><label for="country">Country *</label><input id="country" name="country" autocomplete="country-name" required maxlength="80" placeholder="e.g. Malawi, United States, United Kingdom"></div>
                 <div class="field"><label for="contact">WhatsApp or phone number *</label><input id="contact" name="contact" autocomplete="tel" required maxlength="30" placeholder="+265 ..."></div>
                 <div class="field"><label for="email">Email address (optional)</label><input id="email" name="email" type="email" autocomplete="email" maxlength="120" placeholder="you@example.com"></div>
               </div>
+              <div class="field"><label for="currency">Preferred quotation currency</label><select id="currency" name="currency"><option>USD</option><option>MWK</option><option>GBP</option><option>EUR</option><option>ZAR</option><option>Other / please advise</option></select><small>Final currency and available payment methods are confirmed in your quotation.</small></div>
+              <div class="field"><label for="contactMethod">Preferred way for us to contact you</label><select id="contactMethod" name="contactMethod"><option>WhatsApp</option><option>Email</option><option>Phone call</option><option>Online meeting</option></select></div>
               <div class="field"><label for="service">What do you need? *</label>
                 <select id="service" name="service" required>
                   <option value="">Choose a service</option><option>Business website</option><option>Online store / e-commerce</option><option>Web application or business system</option><option>Business automation / AI assistant</option><option>Lead generation</option><option>Data analysis and reporting</option><option>Video clipping and content</option><option>Not sure yet — help me decide</option>
@@ -72,12 +75,12 @@
               </div>
               <div class="field"><label for="goal">Briefly describe your business or idea *</label><textarea id="goal" name="goal" required maxlength="1200" placeholder="What does your business do, and what would you like the website or system to help you achieve? A few sentences are enough."></textarea><small>Don't worry about perfect wording. We can help organize your content.</small></div>
               <div class="form-grid">
-                <div class="field"><label for="budget">Approximate budget (optional)</label><select id="budget" name="budget"><option value="">Not decided</option><option>Below MK 50,000</option><option>MK 50,000–100,000</option><option>MK 100,000–250,000</option><option>MK 250,000+</option><option>Prefer to discuss</option></select></div>
+                <div class="field"><label for="budget">Approximate budget (optional — enter amount in your preferred currency)</label><select id="budget" name="budget"><option value="">Not decided</option><option>Below 500</option><option>500–1,000</option><option>1,000–2,500</option><option>2,500+</option><option>Prefer to discuss</option></select></div>
                 <div class="field"><label for="timing">When would you like to start?</label><select id="timing" name="timing"><option>As soon as possible</option><option>Within 2–4 weeks</option><option>Within 1–3 months</option><option>Just exploring options</option></select></div>
               </div>
               <div class="field"><label for="materials">Do you have text, photos, or a logo ready?</label><select id="materials" name="materials"><option>Not yet — I need help</option><option>I have some materials</option><option>Yes, everything is ready</option></select><small>You can still enquire if you have nothing prepared.</small></div>
-              <button class="btn btn-primary" type="submit" style="width:100%;justify-content:center;border:0;cursor:pointer">Continue to WhatsApp →</button>
-              <p class="form-note">Your message is not sent automatically. WhatsApp will open with your enquiry prepared; review it and press Send to deliver it to Kelnix.</p>
+              <button class="btn btn-primary" type="submit" style="width:100%;justify-content:center;border:0;cursor:pointer">Prepare my enquiry →</button>
+              <p class="form-note">Your enquiry is prepared for WhatsApp. You must press Send to deliver it. You can also email the same enquiry to kaphirij9@gmail.com.</p>
               <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
             </form>
           </section>
@@ -85,7 +88,7 @@
           <aside class="request-side">
             <div class="glass-panel side-card">
               <span class="section-tag">Website starter package</span><h2 style="font-size:1.35rem">A professional online presence</h2>
-              <div class="price">From MK 50,000</div>
+              <div class="price">From MK 50,000 (Malawi pricing)</div>
               <p class="muted">Starting price for a single-page business website. Final pricing depends on the features, content, and scope you need.</p>
               <ul class="check-list"><li>Mobile-friendly layout</li><li>Business information and services</li><li>Contact and WhatsApp action</li><li>Clear path for customers to enquire</li></ul>
             </div>
@@ -101,7 +104,7 @@
             <div class="glass-panel side-card">
               <h3 style="margin-bottom:.5rem">Prefer a direct conversation?</h3>
               <p class="muted" style="margin-bottom:1rem">Message Kelnix and discuss your idea directly.</p>
-              <a class="btn btn-secondary" style="width:100%;justify-content:center" href="https://wa.me/265882986170" target="_blank" rel="noopener">WhatsApp +265 882 986 170</a>
+              <a class="btn btn-secondary" style="width:100%;justify-content:center" href="https://wa.me/265882986170" target="_blank" rel="noopener">WhatsApp +265 882 986 170</a><p class="muted" style="margin-top:.8rem">International email: <a href="mailto:kaphirij9@gmail.com">kaphirij9@gmail.com</a></p>
             </div>
           </aside>
         </div>
@@ -118,7 +121,7 @@
           <details><summary>Do I need technical knowledge?</summary><p>No. Explain your business and what you need in everyday language. We will guide you through the technical decisions and explain the options clearly.</p></details>
           <details><summary>Can Kelnix help if I only have a business idea?</summary><p>Yes. Choose “Not sure yet — help me decide” in the form and describe the problem you want to solve. We can discuss a practical starting point before you commit to a project.</p></details>
           <details><summary>Am I committed to buying after sending an enquiry?</summary><p>No. An enquiry is a conversation, not a purchase. We discuss the scope and price first. Development begins only after you approve the proposal and agreed terms.</p></details>
-          <details><summary>How do I pay?</summary><p>Payment arrangements depend on the project and are discussed in the quotation. Do not make a payment until you have received and agreed to the project scope and payment terms.</p></details>
+          <details><summary>How do I pay?</summary><p>Payment methods depend on your country and project. Your quotation will state the accepted currency, payment method and milestones. Do not pay until you have received and agreed to the written scope and terms.</p></details>
         </div>
       </div>
     </section>
@@ -136,7 +139,10 @@
         '',
         'Name: ' + data.get('fullName'),
         'Business: ' + (data.get('businessName') || 'Not provided'),
+        'Country: ' + data.get('country'),
         'Phone / WhatsApp: ' + data.get('contact'),
+        'Preferred contact: ' + data.get('contactMethod'),
+        'Preferred currency: ' + data.get('currency'),
         'Email: ' + (data.get('email') || 'Not provided'),
         'Service: ' + data.get('service'),
         'Project / business details: ' + data.get('goal'),
@@ -146,9 +152,14 @@
       ];
       const message = encodeURIComponent(lines.join('\n'));
       const status = document.getElementById('formStatus');
-      status.textContent = 'Your enquiry is prepared. WhatsApp is opening now. Please review the message and press Send so Kelnix receives it.';
+      status.textContent = 'Your enquiry is ready. Complete the send action in the app that opens so Kelnix receives it.';
       status.style.display = 'block';
-      window.open('https://wa.me/265882986170?text=' + message, '_blank', 'noopener');
+      if (data.get('contactMethod') === 'Email' && data.get('email')) {
+        const subject = encodeURIComponent('Kelnix project enquiry — ' + data.get('country'));
+        window.location.href = 'mailto:kaphirij9@gmail.com?subject=' + subject + '&body=' + message;
+      } else {
+        window.open('https://wa.me/265882986170?text=' + message, '_blank', 'noopener');
+      }
     });
   </script>
 </body>
