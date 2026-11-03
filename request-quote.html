@@ -1,150 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Request a Project Quote | Kelnix</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Request a professional website or digital solution from Kelnix. No technical knowledge, finished copy or professional photos required.">
+  <title>Start a Project | Kelnix</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    .request-hero{padding:10rem 0 4rem}.request-layout{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(280px,.7fr);gap:2rem;align-items:start}
+    .request-panel{padding:clamp(1.25rem,4vw,2.5rem);border-radius:24px}.request-form{display:flex;flex-direction:column;gap:1.15rem}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}.field label{display:block;font-size:.88rem;font-weight:600;margin-bottom:.45rem;color:var(--text-main)}
+    .field input,.field select,.field textarea{width:100%;padding:.9rem 1rem;background:var(--bg-primary);border:1px solid var(--border-color);border-radius:10px;color:var(--text-main);font:inherit}
+    .field input:focus,.field select:focus,.field textarea:focus{outline:2px solid var(--accent-primary);outline-offset:2px}.field textarea{resize:vertical;min-height:115px}
+    .field small,.muted{color:var(--text-muted)}.field small{display:block;margin-top:.35rem;font-size:.78rem}
+    .request-side{display:flex;flex-direction:column;gap:1rem}.side-card{padding:1.5rem;border-radius:18px}.price{font-size:2rem;font-weight:900;color:var(--accent-primary);margin:.35rem 0}
+    .check-list{list-style:none;display:grid;gap:.7rem;margin-top:1rem}.check-list li:before{content:"✓";color:#10b981;font-weight:800;margin-right:.6rem}
+    .steps{display:grid;gap:1rem;counter-reset:step}.step{display:flex;gap:1rem;align-items:flex-start}.step:before{counter-increment:step;content:counter(step);display:grid;place-items:center;flex:0 0 2rem;height:2rem;border-radius:50%;background:rgba(6,182,212,.14);color:var(--accent-primary);font-weight:800}
+    .faq-list{max-width:850px;margin:0 auto;display:grid;gap:.8rem}.faq-list details{background:var(--bg-card);border:1px solid var(--border-color);border-radius:14px;padding:1.15rem 1.35rem}.faq-list summary{cursor:pointer;font-weight:700}.faq-list details p{color:var(--text-muted);margin-top:.8rem}
+    .form-note{font-size:.85rem;color:var(--text-muted)}.form-status{display:none;padding:1rem;border-radius:12px;border:1px solid rgba(16,185,129,.35);background:rgba(16,185,129,.1);color:#a7f3d0}
+    @media(max-width:850px){.request-layout{grid-template-columns:1fr}.request-hero{padding-top:8rem}}
+    @media(max-width:560px){.form-grid{grid-template-columns:1fr}.request-panel{padding:1.1rem}.request-hero h1{font-size:2.5rem!important}}
+  </style>
 </head>
 <body>
-    <div class="ambient-bg"><div class="glow-orb orb-1"></div><div class="glow-orb orb-2"></div></div>
-    <header class="header">
-        <div class="nav-container">
-            <a href="index.html" class="logo"><img src="logo.png" alt="Kelnix Logo" class="logo-img"><span class="logo-text">KELNIX</span></a>
-            <nav class="nav-menu">
-                <a href="index.html" class="nav-link">Home</a>
-                <a href="index.html#services" class="nav-link">Services</a>
-                <a href="portfolio.html" class="nav-link">Portfolio</a>
-                <a href="https://wa.me/265882986170" target="_blank" rel="noopener" class="nav-link cta-btn">WhatsApp +265 882 986 170</a>
-            </nav>
+  <div class="ambient-bg"><div class="glow-orb orb-1"></div><div class="glow-orb orb-2"></div></div>
+  <header class="header">
+    <div class="nav-container">
+      <a href="index.html" class="logo"><img src="logo.png" alt="Kelnix Logo" class="logo-img"><span class="logo-text">KELNIX</span></a>
+      <nav class="nav-menu" id="navMenu">
+        <a href="index.html" class="nav-link">Home</a><a href="index.html#services" class="nav-link">Services</a><a href="portfolio.html" class="nav-link">Portfolio</a>
+        <a href="https://wa.me/265882986170" target="_blank" rel="noopener" class="nav-link cta-btn">WhatsApp Kelnix</a>
+      </nav>
+      <div class="hamburger" id="hamburger" aria-label="Toggle navigation" role="button" tabindex="0"><span></span><span></span><span></span></div>
+    </div>
+  </header>
+
+  <main>
+    <section class="request-hero">
+      <div class="container">
+        <span class="section-tag">Start a project with Kelnix</span>
+        <h1 style="font-size:3.5rem;max-width:850px;margin-bottom:1rem">Tell us what your business <span class="gradient-text">needs next.</span></h1>
+        <p style="font-size:1.15rem;color:var(--text-muted);max-width:760px;margin-bottom:2.5rem">A professional website can start with just an idea. You do not need finished text, professional photos, or technical knowledge. Share a few details and we will help shape the next steps.</p>
+
+        <div class="request-layout">
+          <section class="glass-panel request-panel" aria-labelledby="form-title">
+            <span class="section-tag">Project enquiry</span>
+            <h2 id="form-title" style="font-size:1.8rem;margin-bottom:.5rem">What would you like us to build?</h2>
+            <p class="muted" style="margin-bottom:1.5rem">Complete the short form. It will prepare a message for you to send to Kelnix on WhatsApp.</p>
+            <form class="request-form" id="enquiryForm">
+              <div class="form-grid">
+                <div class="field"><label for="fullName">Your name *</label><input id="fullName" name="fullName" autocomplete="name" required maxlength="80" placeholder="e.g. John Banda"></div>
+                <div class="field"><label for="businessName">Business or organization</label><input id="businessName" name="businessName" autocomplete="organization" maxlength="100" placeholder="Business name (if applicable)"></div>
+              </div>
+              <div class="form-grid">
+                <div class="field"><label for="contact">WhatsApp or phone number *</label><input id="contact" name="contact" autocomplete="tel" required maxlength="30" placeholder="+265 ..."></div>
+                <div class="field"><label for="email">Email address (optional)</label><input id="email" name="email" type="email" autocomplete="email" maxlength="120" placeholder="you@example.com"></div>
+              </div>
+              <div class="field"><label for="service">What do you need? *</label>
+                <select id="service" name="service" required>
+                  <option value="">Choose a service</option><option>Business website</option><option>Online store / e-commerce</option><option>Web application or business system</option><option>Business automation / AI assistant</option><option>Lead generation</option><option>Data analysis and reporting</option><option>Video clipping and content</option><option>Not sure yet — help me decide</option>
+                </select>
+              </div>
+              <div class="field"><label for="goal">Briefly describe your business or idea *</label><textarea id="goal" name="goal" required maxlength="1200" placeholder="What does your business do, and what would you like the website or system to help you achieve? A few sentences are enough."></textarea><small>Don't worry about perfect wording. We can help organize your content.</small></div>
+              <div class="form-grid">
+                <div class="field"><label for="budget">Approximate budget (optional)</label><select id="budget" name="budget"><option value="">Not decided</option><option>Below MK 50,000</option><option>MK 50,000–100,000</option><option>MK 100,000–250,000</option><option>MK 250,000+</option><option>Prefer to discuss</option></select></div>
+                <div class="field"><label for="timing">When would you like to start?</label><select id="timing" name="timing"><option>As soon as possible</option><option>Within 2–4 weeks</option><option>Within 1–3 months</option><option>Just exploring options</option></select></div>
+              </div>
+              <div class="field"><label for="materials">Do you have text, photos, or a logo ready?</label><select id="materials" name="materials"><option>Not yet — I need help</option><option>I have some materials</option><option>Yes, everything is ready</option></select><small>You can still enquire if you have nothing prepared.</small></div>
+              <button class="btn btn-primary" type="submit" style="width:100%;justify-content:center;border:0;cursor:pointer">Continue to WhatsApp →</button>
+              <p class="form-note">Your message is not sent automatically. WhatsApp will open with your enquiry prepared; review it and press Send to deliver it to Kelnix.</p>
+              <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
+            </form>
+          </section>
+
+          <aside class="request-side">
+            <div class="glass-panel side-card">
+              <span class="section-tag">Website starter package</span><h2 style="font-size:1.35rem">A professional online presence</h2>
+              <div class="price">From MK 50,000</div>
+              <p class="muted">Starting price for a single-page business website. Final pricing depends on the features, content, and scope you need.</p>
+              <ul class="check-list"><li>Mobile-friendly layout</li><li>Business information and services</li><li>Contact and WhatsApp action</li><li>Clear path for customers to enquire</li></ul>
+            </div>
+            <div class="glass-panel side-card">
+              <h3 style="font-size:1.25rem;margin-bottom:1.2rem">What happens next?</h3>
+              <div class="steps">
+                <div class="step"><div><strong>Send your enquiry</strong><p class="muted">Review the prepared WhatsApp message and send it to us.</p></div></div>
+                <div class="step"><div><strong>We review your needs</strong><p class="muted">We clarify the goals, features, and any missing information.</p></div></div>
+                <div class="step"><div><strong>Receive a proposal</strong><p class="muted">We discuss scope, price, and an estimated delivery timeline.</p></div></div>
+                <div class="step"><div><strong>Approve and begin</strong><p class="muted">Work starts after you approve the agreed scope and terms.</p></div></div>
+              </div>
+            </div>
+            <div class="glass-panel side-card">
+              <h3 style="margin-bottom:.5rem">Prefer a direct conversation?</h3>
+              <p class="muted" style="margin-bottom:1rem">Message Kelnix and discuss your idea directly.</p>
+              <a class="btn btn-secondary" style="width:100%;justify-content:center" href="https://wa.me/265882986170" target="_blank" rel="noopener">WhatsApp +265 882 986 170</a>
+            </div>
+          </aside>
         </div>
-    </header>
-
-    <section class="hero" style="padding-top: 9rem;">
-        <div class="container hero-content" style="max-width: 800px; text-align: left;">
-            <span class="section-tag">Project Enquiry</span>
-            <h1 style="font-size: 3rem; margin-bottom: 1rem;">Let's Build Your <span class="gradient-text">Digital Solution</span></h1>
-            <p style="font-size: 1.15rem; color: var(--text-muted); margin-bottom: 2.5rem;">Complete the project enquiry form below or connect instantly with us on WhatsApp at +265 882 986 170.</p>
-            
-            <div class="glass-panel" style="padding: 3rem; border-radius: 24px;">
-                <form id="quoteForm" style="display: flex; flex-direction: column; gap: 1.5rem;">
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
-                        <div class="form-group">
-                            <label for="fullName" style="display: block; font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem;">Full Name *</label>
-                            <input type="text" id="fullName" required placeholder="John Doe" style="width: 100%; padding: 0.9rem; background: var(--bg-primary); border: 1px solid var(--border-color); border-radius: 10px; color: var(--text-main);">
-                        </div>
-                        <div class="form-group">
-                            <label for="businessName" style="display: block; font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem;">Business / Organization</label>
-                            <input type="text" id="businessName" placeholder="Company Ltd" style="width: 100%; padding: 0.9rem; background: var(--bg-primary); border: 1px solid var(--border-color); border-radius: 10px; color: var(--text-main);">
-                        </div>
-                    </div>
-
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
-                        <div class="form-group">
-                            <label for="email" style="display: block; font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem;">Email Address *</label>
-                            <input type="email" id="email" required placeholder="john@company.com" style="width: 100%; padding: 0.9rem; background: var(--bg-primary); border: 1px solid var(--border-color); border-radius: 10px; color: var(--text-main);">
-                        </div>
-                        <div class="form-group">
-                            <label for="phone" style="display: block; font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem;">Phone / WhatsApp *</label>
-                            <input type="text" id="phone" required placeholder="+265..." style="width: 100%; padding: 0.9rem; background: var(--bg-primary); border: 1px solid var(--border-color); border-radius: 10px; color: var(--text-main);">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="serviceCategory" style="display: block; font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem;">Primary Service Required *</label>
-                        <select id="serviceCategory" required style="width: 100%; padding: 0.9rem; background: var(--bg-primary); border: 1px solid var(--border-color); border-radius: 10px; color: var(--text-main);">
-                            <option value="">Select a service division...</option>
-                            <option value="automation">01. Business Automation & AI Integration</option>
-                            <option value="website">02. Website Development</option>
-                            <option value="application">03. Application & Software Development</option>
-                            <option value="lead-gen">04. Lead Generation & Business Intelligence</option>
-                            <option value="data">05. Data Analytics & Solutions</option>
-                            <option value="clipping">06. Content Clipping & Video Repurposing</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="projectDetails" style="display: block; font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem;">Project Scope & Requirements *</label>
-                        <textarea id="projectDetails" rows="5" required placeholder="Describe your business challenge, goals, and desired deliverables..." style="width: 100%; padding: 0.9rem; background: var(--bg-primary); border: 1px solid var(--border-color); border-radius: 10px; color: var(--text-main); font-family: var(--font-sans);"></textarea>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1rem;">Submit Enquiry</button>
-                    <div id="successMessage" class="hidden" style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); color: #10b981; padding: 1rem; border-radius: 10px; text-align: center; font-weight: 500;">
-                        Thank you! Your enquiry has been received. We will contact you shortly or you can message us directly on WhatsApp: <a href="https://wa.me/265882986170" target="_blank" style="color: inherit; text-decoration: underline;">+265 882 986 170</a>.
-                    </div>
-                </form>
-            </div>
-
-            <!-- Interactive Project Cost & Scope Estimator -->
-            <div class="calculator-card" style="margin-top: 4rem; width: 100%;">
-                <h3 style="font-size: 1.75rem; margin-bottom: 0.5rem;">Instant Project Estimator</h3>
-                <p style="color: var(--text-muted); margin-bottom: 2rem;">Configure your project parameters to estimate investment and timeline.</p>
-                
-                <div class="calc-group">
-                    <label for="calcService">Service Type:</label>
-                    <select id="calcService" class="calc-select">
-                        <option value="1500">Business Automation & AI Integration ($1,500+)</option>
-                        <option value="800">Professional Website Development ($800+)</option>
-                        <option value="2500">Full-Stack Custom Application ($2,500+)</option>
-                        <option value="1200">Data Analytics & Pipeline ($1,200+)</option>
-                        <option value="600">Content Clipping & Viral Strategy ($600/mo)</option>
-                    </select>
-                </div>
-
-                <div class="calc-group">
-                    <label for="calcComplexity">Project Complexity / Scale:</label>
-                    <select id="calcComplexity" class="calc-select">
-                        <option value="1">Standard / Small Business (1-2 Weeks)</option>
-                        <option value="1.5">Growth / Medium Enterprise (2-4 Weeks)</option>
-                        <option value="2.2">Advanced / Enterprise System (4+ Weeks)</option>
-                    </select>
-                </div>
-
-                <div class="calc-output-box">
-                    <div style="font-size: 0.9rem; color: var(--text-muted); font-family: var(--font-mono);">Estimated Investment Range</div>
-                    <div id="calcEstimatedPrice" class="calc-price">$1,500 - $2,250</div>
-                    <div style="font-size: 0.85rem; color: var(--accent-primary);">Includes dedicated technical support & maintenance. Contact us on WhatsApp for exact quotations.</div>
-                </div>
-            </div>
-            </div>
-        </div>
+      </div>
     </section>
 
-    <footer class="footer" style="margin-top: 6rem;">
-        <div class="container footer-container">
-            <div class="footer-brand"><div class="footer-logo-wrap"><img src="logo.png" alt="Kelnix Logo" class="footer-logo-img"><span class="logo-text">KELNIX</span></div><p>&copy; 2026 Kelnix. Digital systems. Intelligent solutions. Business growth.</p></div>
-            <div class="footer-links"><a href="index.html">Home</a><a href="https://wa.me/265882986170" target="_blank" rel="noopener">WhatsApp</a></div>
+    <section class="section" style="padding-top:3rem">
+      <div class="container">
+        <div class="section-header"><span class="section-tag">Questions and answers</span><h2>Before you get started</h2><p>Simple answers to common questions about requesting a website or digital service from Kelnix.</p></div>
+        <div class="faq-list">
+          <details><summary>Do I need all my text and photos before I enquire?</summary><p>No. Start with your business name, what you do, and what you want to achieve. Kelnix can help organize the website structure, refine your wording, and advise on suitable images and other materials. We will agree on any content or photography requirements before work begins.</p></details>
+          <details><summary>What happens after I submit the form?</summary><p>The form prepares an enquiry message and opens WhatsApp. You review the message and press Send. Once it reaches Kelnix, we review your requirements, ask any necessary questions, and discuss a suitable scope, quotation, and timeline.</p></details>
+          <details><summary>How much does a business website cost?</summary><p>Kelnix offers a single-page business website package starting from MK 50,000. More complex websites, online stores, integrations, and custom systems are quoted according to their requirements. The final price is agreed with you before development begins.</p></details>
+          <details><summary>Do I need technical knowledge?</summary><p>No. Explain your business and what you need in everyday language. We will guide you through the technical decisions and explain the options clearly.</p></details>
+          <details><summary>Can Kelnix help if I only have a business idea?</summary><p>Yes. Choose “Not sure yet — help me decide” in the form and describe the problem you want to solve. We can discuss a practical starting point before you commit to a project.</p></details>
+          <details><summary>Am I committed to buying after sending an enquiry?</summary><p>No. An enquiry is a conversation, not a purchase. We discuss the scope and price first. Development begins only after you approve the proposal and agreed terms.</p></details>
+          <details><summary>How do I pay?</summary><p>Payment arrangements depend on the project and are discussed in the quotation. Do not make a payment until you have received and agreed to the project scope and payment terms.</p></details>
         </div>
-    </footer>
+      </div>
+    </section>
+  </main>
 
-    <script>
-        document.getElementById('quoteForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            document.getElementById('successMessage').classList.remove('hidden');
-            this.reset();
-        });
-
-        const calcService = document.getElementById('calcService');
-        const calcComplexity = document.getElementById('calcComplexity');
-        const calcEstimatedPrice = document.getElementById('calcEstimatedPrice');
-
-        function updateEstimate() {
-            if (!calcService || !calcComplexity || !calcEstimatedPrice) return;
-            const base = parseFloat(calcService.value);
-            const mult = parseFloat(calcComplexity.value);
-            const low = Math.round(base * mult);
-            const high = Math.round(low * 1.4);
-            calcEstimatedPrice.textContent = `$${low.toLocaleString()} - $${high.toLocaleString()}`;
-        }
-
-        if (calcService && calcComplexity) {
-            calcService.addEventListener('change', updateEstimate);
-            calcComplexity.addEventListener('change', updateEstimate);
-            updateEstimate();
-        }
-    </script>
+  <footer class="footer"><div class="container footer-container"><div class="footer-brand"><div class="footer-logo-wrap"><img src="logo.png" alt="Kelnix Logo" class="footer-logo-img"><span class="logo-text">KELNIX</span></div><p>&copy; 2026 Kelnix. Digital systems. Intelligent solutions. Business growth.</p></div><div class="footer-links"><a href="index.html">Home</a><a href="index.html#services">Services</a><a href="https://wa.me/265882986170" target="_blank" rel="noopener">WhatsApp</a></div></div></footer>
+  <script src="script.js"></script>
+  <script>
+    document.getElementById('enquiryForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      if (!this.reportValidity()) return;
+      const data = new FormData(this);
+      const lines = [
+        'Hello Kelnix, I would like to make a project enquiry.',
+        '',
+        'Name: ' + data.get('fullName'),
+        'Business: ' + (data.get('businessName') || 'Not provided'),
+        'Phone / WhatsApp: ' + data.get('contact'),
+        'Email: ' + (data.get('email') || 'Not provided'),
+        'Service: ' + data.get('service'),
+        'Project / business details: ' + data.get('goal'),
+        'Budget: ' + (data.get('budget') || 'Not decided'),
+        'Preferred start: ' + data.get('timing'),
+        'Content and photos: ' + data.get('materials')
+      ];
+      const message = encodeURIComponent(lines.join('\n'));
+      const status = document.getElementById('formStatus');
+      status.textContent = 'Your enquiry is prepared. WhatsApp is opening now. Please review the message and press Send so Kelnix receives it.';
+      status.style.display = 'block';
+      window.open('https://wa.me/265882986170?text=' + message, '_blank', 'noopener');
+    });
+  </script>
 </body>
 </html>
