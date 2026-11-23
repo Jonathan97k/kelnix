@@ -99,3 +99,59 @@ body:not([class*="room-"]) .hero .wrap{min-height:650px;padding-right:590px}
 @media(max-width:1000px){body:not([class*="room-"]) .hero .wrap{padding-right:390px;min-height:590px}.global-network{width:440px;max-width:49%;right:-18px}}
 @media(max-width:760px){body:not([class*="room-"]) .hero .wrap{padding-right:0;min-height:0}.global-network{position:relative;right:auto;top:auto;transform:none;width:min(100%,520px);max-width:100%;margin:34px auto 0}.earth-sphere{width:86%}.network-label{font-size:.52rem}.label-west{left:0}.label-europe{right:0}}
 @media(prefers-reduced-motion:reduce){.earth-map,.earth-sphere{animation:none!important}.earth-routes animateMotion{display:none}}
+
+
+/* Scroll transformation: hero globe becomes a fixed, animated page watermark. */
+body.globe-watermark-mode>.global-network{
+ position:fixed!important;
+ z-index:1!important;
+ top:50%!important;
+ right:-7vw!important;
+ left:auto!important;
+ bottom:auto!important;
+ width:min(66vw,820px)!important;
+ max-width:none!important;
+ margin:0!important;
+ transform:translateY(-50%)!important;
+ opacity:.115;
+ filter:drop-shadow(0 12px 40px #3d9cc72b);
+ pointer-events:none!important;
+ transition:opacity .75s ease,width .75s ease,filter .75s ease;
+}
+body.globe-watermark-mode>.global-network .earth-sphere{
+ width:88%;
+ animation:earthDrift 14s ease-in-out infinite;
+}
+body.globe-watermark-mode>.global-network .earth-map{
+ animation-duration:100s;
+}
+body.globe-watermark-mode>.global-network .earth-routes{
+ opacity:.42;
+}
+body.globe-watermark-mode>.global-network .network-label{
+ opacity:0;
+}
+body.globe-watermark-mode main>section:not(.hero) .wrap,
+body.globe-watermark-mode footer .wrap{
+ position:relative;
+ z-index:2;
+}
+body.globe-watermark-mode .global-network:before,
+body.globe-watermark-mode .global-network:after{
+ opacity:.22;
+}
+@media(max-width:760px){
+ body.globe-watermark-mode>.global-network{
+  width:112vw!important;
+  right:-42vw!important;
+  opacity:.085;
+ }
+}
+@media(prefers-reduced-motion:reduce){
+ body.globe-watermark-mode>.global-network,
+ body.globe-watermark-mode>.global-network .earth-sphere,
+ body.globe-watermark-mode>.global-network .earth-map{
+  transition:none!important;
+  animation:none!important;
+ }
+}
