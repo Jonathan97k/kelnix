@@ -19,7 +19,7 @@
 </head>
 <body>
 <header class="topbar"><div class="brand"><img src="/logo.png" alt="KELNIX"><div>KELNIX<small>SOURCING OPERATIONS</small></div></div><div class="top-actions"><span id="signedInAs"></span><button id="logoutBtn" class="hidden">Sign out</button></div></header>
-<section id="loginView" class="login-shell"><div class="login-card"><div class="eyebrow">Private workspace</div><h1>Sign in to KELNIX</h1><p>Access is restricted to the authorised KELNIX administrator. We will send a one-time email code to your registered address.</p><form id="emailForm"><div class="field"><label for="adminEmail">Administrator email</label><input id="adminEmail" type="email" value="kaphirij9@gmail.com" required autocomplete="email"></div><button class="primary" type="submit" id="sendCodeBtn">Send sign-in code</button></form><form id="otpForm" class="hidden"><div class="field"><label for="otpCode">Six-digit email code</label><input id="otpCode" inputmode="numeric" autocomplete="one-time-code" maxlength="6" pattern="[0-9]{6}" required></div><button class="primary" type="submit" id="verifyBtn">Verify and sign in</button></form><div class="error" id="loginError" role="status"></div><div class="notice">Only the pre-authorised KELNIX email address can access enquiry records.</div></div></section>
+<section id="loginView" class="login-shell"><div class="login-card"><div class="eyebrow">Private workspace</div><h1>Sign in to KELNIX</h1><p>Access is restricted to the authorised KELNIX administrator. We will send a one-time sign-in email. Follow its sign-in link, or enter the six-digit code if one is provided.</p><form id="emailForm"><div class="field"><label for="adminEmail">Administrator email</label><input id="adminEmail" type="email" value="kaphirij9@gmail.com" required autocomplete="email"></div><button class="primary" type="submit" id="sendCodeBtn">Send sign-in code</button></form><form id="otpForm" class="hidden"><div class="field"><label for="otpCode">Six-digit email code</label><input id="otpCode" inputmode="numeric" autocomplete="one-time-code" maxlength="6" pattern="[0-9]{6}" required></div><button class="primary" type="submit" id="verifyBtn">Verify and sign in</button></form><div class="error" id="loginError" role="status"></div><div class="notice">Only the pre-authorised KELNIX email address can access enquiry records.</div></div></section>
 <main id="appView" class="wrap hidden">
 <div class="heading"><div><div class="eyebrow">Business development / intake</div><h1>Sourcing pipeline</h1><p>Review buyer requirements, rights-holder submissions and partnership enquiries.</p></div><button class="primary" id="exportBtn">Export CSV ↓</button></div>
 <div class="stats"><div class="stat"><span>Total enquiries</span><strong id="totalCount">0</strong></div><div class="stat"><span>New to review</span><strong id="newCount">0</strong></div><div class="stat"><span>Qualified</span><strong id="qualifiedCount">0</strong></div><div class="stat"><span>In evaluation</span><strong id="evaluationCount">0</strong></div></div>
@@ -83,10 +83,10 @@
   const email=$("adminEmail").value.trim().toLowerCase();
   if(email!==ADMIN_EMAIL){setError("This email address is not authorised.");return}
   $("sendCodeBtn").disabled=true;$("sendCodeBtn").textContent="Sending…";
-  const {error}=await db.auth.signInWithOtp({email,options:{shouldCreateUser:false}});
+  const {error}=await db.auth.signInWithOtp({email,options:{shouldCreateUser:false,emailRedirectTo:window.location.origin+"/admin.html"}});
   $("sendCodeBtn").disabled=false;$("sendCodeBtn").textContent="Send sign-in code";
   if(error){setError(error.message);return}
-  $("otpForm").classList.remove("hidden");$("otpCode").focus();setError("A one-time code has been sent. Check your email inbox.");
+  $("otpForm").classList.remove("hidden");$("otpCode").focus();setError("A sign-in email has been sent. Follow its link to return here, or enter the six-digit code if your email contains one.");
  });
  $("otpForm").addEventListener("submit",async e=>{
   e.preventDefault();setError("");$("verifyBtn").disabled=true;$("verifyBtn").textContent="Verifying…";
