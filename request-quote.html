@@ -28,7 +28,7 @@
 <div class="field full"><label for="details">Tell us about your requirement or project *</label><textarea id="details" name="details" required placeholder="For buyers: describe the technology, project history, metrics or assets you are looking for. For owners: describe the project, your role and what you may be authorised to discuss."></textarea></div>
 <div class="field full"><label for="timeline">Expected timeline</label><select id="timeline" name="timeline"><option>Flexible / exploratory</option><option>Within 30 days</option><option>Within 1–3 months</option><option>More than 3 months</option></select></div>
 </div>
-<p class="form-help">By submitting, you confirm that the information is accurate and that you are authorised to share it. Do not include confidential repository contents or sensitive credentials. Enquiries are stored securely for KELNIX to review.</p>
+<label class="p-consent" style="display:flex;gap:10px;align-items:flex-start;font-size:.75rem;line-height:1.6;color:#64778a;margin-top:18px"><input id="privacyConsent" type="checkbox" required style="margin-top:4px"><span>I confirm that these details are accurate and that I am authorised to share them. I have read the <a href="/privacy" target="_blank" rel="noopener">Privacy Notice</a>. Basic browser/device information is collected with this submission for operational and security purposes.</span></label><p class="form-help">Do not include confidential repository contents, passwords, private keys or sensitive credentials.</p>
 <button class="button button-primary" type="submit">Submit enquiry <span>↗</span></button><p class="form-status" id="formStatus" role="status"></p>
 </form></section>
 </main>
@@ -40,7 +40,7 @@ document.getElementById("enquiryForm").addEventListener("submit", async function
  const form=this;
  const button=form.querySelector('button[type="submit"]');
  const status=document.getElementById("formStatus");
- const payload=Object.fromEntries(new FormData(form).entries());
+ const payload=Object.fromEntries(new FormData(form).entries());\n   payload.privacy_consent=document.getElementById("privacyConsent").checked;\n   payload.device={user_agent:navigator.userAgent||"",platform:navigator.platform||"",language:navigator.language||"",timezone:Intl.DateTimeFormat().resolvedOptions().timeZone||"",screen:screen.width+"x"+screen.height,viewport:window.innerWidth+"x"+window.innerHeight};\n   payload.page_url=location.href; payload.referrer_url=document.referrer||"";
  button.disabled=true;
  button.textContent="Submitting…";
  status.textContent="Sending your enquiry securely. Please wait.";
