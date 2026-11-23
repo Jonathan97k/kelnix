@@ -413,3 +413,8 @@ body{font-family:var(--font);color:var(--ink);background:#fff;line-height:1.7;-w
 .leadership-signoff{margin-top:25px;padding-top:18px;border-top:1px solid #dedbd3;font-size:.65rem;font-weight:800;letter-spacing:.17em;color:#9b7749}
 .leadership-signoff i{font-style:normal;padding:0 7px;color:#c5a16b}
 @media(max-width:760px){.leadership-section{padding:72px 0}.leadership-layout{grid-template-columns:1fr;gap:35px}.leadership-identity{min-height:300px}.leader-monogram{width:125px;height:125px;font-size:2.8rem}}
+
+/* Legacy page logo sizing: logo.png is a 2:1 wordmark; constrain it to the header/footer so it cannot render at intrinsic size. */
+.logo-img{display:block;height:50px;width:auto;max-width:210px;object-fit:contain}
+.footer-logo-img{display:block;height:42px;width:auto;max-width:180px;object-fit:contain}
+@media(max-width:760px){.logo-img{height:38px;max-width:160px}.footer-logo-img{height:34px;max-width:140px}}
