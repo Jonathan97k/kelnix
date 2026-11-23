@@ -433,3 +433,9 @@ body{font-family:var(--font);color:var(--ink);background:#fff;line-height:1.7;-w
 @media(max-width:380px){
  .site-header .brand img{width:190px;max-height:54px}
 }
+
+
+/* Leadership section without a founder photo placeholder */
+.leadership-layout{grid-template-columns:minmax(0,850px);justify-content:center}
+.leadership-copy h2,.leadership-copy p{max-width:760px}
+@media(max-width:760px){.leadership-layout{grid-template-columns:1fr}}
