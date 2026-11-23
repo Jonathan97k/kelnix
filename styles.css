@@ -394,3 +394,22 @@ body{font-family:var(--font);color:var(--ink);background:#fff;line-height:1.7;-w
  .approach-visual img{height:290px}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
+
+
+/* Founder and leadership */
+.leadership-section{padding:100px 0;background:#f4f3ef}
+.leadership-layout{display:grid;grid-template-columns:.78fr 1.22fr;gap:90px;align-items:center}
+.leadership-identity{min-height:390px;background:linear-gradient(145deg,#1a3045,#0d1c2c);display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:35px}
+.leadership-identity:before,.leadership-identity:after{content:"";position:absolute;border:1px solid rgba(218,184,128,.22);border-radius:50%;width:310px;height:310px}
+.leadership-identity:after{width:240px;height:240px}
+.leader-monogram{width:150px;height:150px;border:1px solid rgba(225,190,132,.75);border-radius:50%;display:grid;place-items:center;color:#e2c18f;font:500 3.4rem var(--display);letter-spacing:-.08em;z-index:1;background:rgba(255,255,255,.035)}
+.leader-caption{display:flex;flex-direction:column;gap:8px;text-align:center;margin-top:25px;z-index:1}
+.leader-caption span{font-size:.58rem;letter-spacing:.16em;color:#dfc18f;font-weight:700}
+.leader-caption strong{font:700 .72rem var(--display);letter-spacing:.1em;color:#fff}
+.leadership-copy h2{font:750 clamp(2.1rem,3.7vw,3.15rem)/1.14 var(--display);letter-spacing:-.055em;color:#17283a;margin:17px 0 25px;max-width:580px}
+.leadership-copy h3{font:750 1.12rem var(--display);color:#1b2d40;margin-bottom:15px}
+.leadership-copy h3 span{display:block;font:600 .68rem var(--body);letter-spacing:.04em;color:#9b7749;margin-top:6px}
+.leadership-copy p{font-size:.82rem;line-height:1.9;color:#65727e;margin:0 0 13px;max-width:650px}
+.leadership-signoff{margin-top:25px;padding-top:18px;border-top:1px solid #dedbd3;font-size:.65rem;font-weight:800;letter-spacing:.17em;color:#9b7749}
+.leadership-signoff i{font-style:normal;padding:0 7px;color:#c5a16b}
+@media(max-width:760px){.leadership-section{padding:72px 0}.leadership-layout{grid-template-columns:1fr;gap:35px}.leadership-identity{min-height:300px}.leader-monogram{width:125px;height:125px;font-size:2.8rem}}
