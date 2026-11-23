@@ -26,7 +26,7 @@
 <div class="workspace">
 <section class="panel"><div class="panel-head"><h2>Incoming enquiries</h2><div class="filters"><input id="searchInput" type="search" placeholder="Search name, company, email"><select id="statusFilter"><option value="">All statuses</option><option value="new">New</option><option value="reviewing">Reviewing</option><option value="qualified">Qualified</option><option value="awaiting_owner_authorisation">Awaiting authorisation</option><option value="evaluation">Evaluation</option><option value="proposal">Proposal</option><option value="closed_won">Closed won</option><option value="closed_lost">Closed lost</option><option value="rejected">Rejected</option></select></div></div><div class="table-wrap"><table><thead><tr><th>Contact</th><th>Type</th><th>Status</th><th>Received</th></tr></thead><tbody id="enquiryRows"><tr><td colspan="4" class="empty">Sign in to load enquiries.</td></tr></tbody></table></div><div class="panel-head"><span class="muted" id="resultCount">0 enquiries</span><button class="secondary" id="refreshBtn">Refresh</button></div></section>
 <aside class="panel"><div class="panel-head"><h2>Enquiry details</h2><span class="pill" id="detailStatus">No selection</span></div><div id="detailView" class="detail"><div class="empty">Select an enquiry to review its details and update its pipeline status.</div></div></aside>
-</div><div class="notice">Internal workspace. Verify ownership, licensing, repository access rights and buyer requirements before representing any project as available.</div>
+</div><section class="panel" style="margin-top:18px"><div class="panel-head"><h2>Partnership applications</h2><div class="filters"><input id="partnerSearch" type="search" placeholder="Search partner, company, email"><select id="partnerStatusFilter"><option value="">All application statuses</option><option value="submitted">Submitted</option><option value="under_review">Under review</option><option value="shortlisted">Shortlisted</option><option value="meeting_requested">Meeting requested</option><option value="approved">Approved</option><option value="declined">Declined</option><option value="closed">Closed</option></select><button class="secondary" id="refreshPartners">Refresh</button></div></div><div class="workspace" style="padding:14px"><div class="table-wrap"><table><thead><tr><th>Applicant</th><th>Partner role</th><th>Services</th><th>Status</th><th>Received</th></tr></thead><tbody id="partnerRows"><tr><td colspan="5" class="empty">Sign in to load partnership applications.</td></tr></tbody></table></div><aside class="panel"><div class="panel-head"><h2>Application review</h2><span class="pill" id="partnerDetailStatus">No selection</span></div><div class="detail" id="partnerDetail"><div class="empty">Select an application to review.</div></div></aside></div></section><div class="notice">Internal workspace. Verify ownership, licensing, repository access rights and buyer requirements before representing any project as available.</div>
 </main>
 <script>
 (() => {
@@ -35,19 +35,48 @@
  const ADMIN_EMAIL="kaphirij9@gmail.com";
  const db=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
  const $=id=>document.getElementById(id);
- let records=[],selectedId=null;
+ let records=[],selectedId=null,partnerRecords=[],selectedPartnerId=null;
  const statuses=["new","reviewing","qualified","awaiting_owner_authorisation","evaluation","proposal","closed_won","closed_lost","rejected"];
  const labels={new:"New",reviewing:"Reviewing",qualified:"Qualified",awaiting_owner_authorisation:"Awaiting authorisation",evaluation:"Evaluation",proposal:"Proposal",closed_won:"Closed won",closed_lost:"Closed lost",rejected:"Rejected"};
  const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
  const date=s=>s?new Date(s).toLocaleString(undefined,{dateStyle:"medium",timeStyle:"short"}):"—";
  function setError(msg){$("loginError").textContent=msg||""}
- function showApp(user){$("loginView").classList.add("hidden");$("appView").classList.remove("hidden");$("logoutBtn").classList.remove("hidden");$("signedInAs").textContent=user.email||"";loadRecords()}
+ function showApp(user){$("loginView").classList.add("hidden");$("appView").classList.remove("hidden");$("logoutBtn").classList.remove("hidden");$("signedInAs").textContent=user.email||"";loadRecords();loadPartnerRecords()}
  function showLogin(){$("appView").classList.add("hidden");$("loginView").classList.remove("hidden");$("logoutBtn").classList.add("hidden");$("signedInAs").textContent=""}
  async function loadRecords(){
   $("enquiryRows").innerHTML='<tr><td colspan="4" class="empty">Loading enquiries…</td></tr>';
   const {data,error}=await db.from("sourcing_enquiries").select("*").order("created_at",{ascending:false}).limit(1000);
   if(error){$("enquiryRows").innerHTML='<tr><td colspan="4" class="empty">Could not load records: '+esc(error.message)+'</td></tr>';return}
   records=data||[];render();
+ }
+ async function loadPartnerRecords(){
+  $("partnerRows").innerHTML='<tr><td colspan="5" class="empty">Loading partnership applications…</td></tr>';
+  const {data,error}=await db.from("partnership_applications").select("*").order("created_at",{ascending:false}).limit(1000);
+  if(error){$("partnerRows").innerHTML='<tr><td colspan="5" class="empty">Could not load partnership applications: '+esc(error.message)+'</td></tr>';return}
+  partnerRecords=data||[];renderPartnerRecords();
+ }
+ function renderPartnerRecords(){
+  const q=$("partnerSearch").value.trim().toLowerCase(),st=$("partnerStatusFilter").value;
+  const rows=partnerRecords.filter(r=>(!st||r.status===st)&&(!q||[r.full_name,r.company_name,r.email,r.partner_type,(r.service_interests||[]).join(" ")].join(" ").toLowerCase().includes(q)));
+  $("partnerRows").innerHTML=rows.length?rows.map(r=>'<tr data-partner-id="'+r.id+'" class="'+(r.id===selectedPartnerId?"selected":"")+'"><td><span class="person">'+esc(r.full_name)+'</span><span class="sub">'+esc(r.company_name||r.email)+'</span></td><td>'+esc((r.partner_type||"").replaceAll("_"," "))+'</td><td>'+esc((r.service_interests||[]).join(", "))+'</td><td><span class="pill '+esc(r.status)+'">'+esc(r.status.replaceAll("_"," "))+'</span></td><td>'+esc(date(r.created_at))+'</td></tr>').join(""):'<tr><td colspan="5" class="empty">No matching partnership applications.</td></tr>';
+  document.querySelectorAll("#partnerRows tr[data-partner-id]").forEach(tr=>tr.addEventListener("click",()=>selectPartner(tr.dataset.partnerId)));
+  if(selectedPartnerId){const current=partnerRecords.find(r=>r.id===selectedPartnerId);if(current)renderPartnerDetail(current);else selectedPartnerId=null}
+ }
+ function selectPartner(id){selectedPartnerId=id;renderPartnerRecords();const r=partnerRecords.find(x=>x.id===id);if(r)renderPartnerDetail(r)}
+ function renderPartnerDetail(r){
+  $("partnerDetailStatus").textContent=r.status.replaceAll("_"," ");$("partnerDetailStatus").className="pill "+r.status;
+  $("partnerDetail").innerHTML='<h2>'+esc(r.full_name)+'</h2><div class="muted">'+esc(r.company_name||"Individual applicant")+' · '+esc(r.email)+'</div>'+
+  '<div class="detail-section"><div class="meta"><div><label>Role</label><strong>'+esc((r.partner_type||"").replaceAll("_"," "))+'</strong></div><div><label>Country</label><strong>'+esc(r.country||"Not specified")+'</strong></div><div><label>Website</label><strong>'+esc(r.website_url||"Not provided")+'</strong></div><div><label>Timeline</label><strong>'+esc(r.expected_timeline||"Not specified")+'</strong></div></div></div>'+
+  '<div class="detail-section"><h3>Service interests</h3><p>'+esc((r.service_interests||[]).join(" · "))+'</p></div><div class="detail-section"><h3>Applicant message</h3><p>'+esc(r.message)+'</p></div>'+
+  '<div class="detail-section"><h3>Application management</h3><div class="field"><label for="partnerEditStatus">Status</label><select id="partnerEditStatus">'+["submitted","under_review","shortlisted","meeting_requested","approved","declined","closed"].map(s=>'<option value="'+s+'" '+(r.status===s?"selected":"")+'>'+esc(s.replaceAll("_"," "))+'</option>').join("")+'</select></div><div class="field"><label for="partnerEditNotes">Internal notes (private)</label><textarea id="partnerEditNotes" maxlength="4000">'+esc(r.internal_notes||"")+'</textarea></div><div class="detail-actions"><button class="primary" id="savePartner">Save application</button><a class="secondary" style="text-decoration:none" href="mailto:'+encodeURIComponent(r.email)+'?subject='+encodeURIComponent("KELNIX partnership application")+'">Email applicant ↗</a></div><div class="error" id="partnerSaveError"></div></div>';
+  $("savePartner").addEventListener("click",()=>savePartner(r.id));
+ }
+ async function savePartner(id){
+  const btn=$("savePartner");btn.disabled=true;btn.textContent="Saving…";
+  const {data,error}=await db.from("partnership_applications").update({status:$("partnerEditStatus").value,internal_notes:$("partnerEditNotes").value.trim()||null,updated_at:new Date().toISOString()}).eq("id",id).select().single();
+  btn.disabled=false;btn.textContent="Save application";
+  if(error){$("partnerSaveError").textContent="Could not save: "+error.message;return}
+  const i=partnerRecords.findIndex(x=>x.id===id);if(i>=0)partnerRecords[i]=data;renderPartnerRecords();$("partnerSaveError").textContent="Application updated.";
  }
  function render(){
   const q=$("searchInput").value.trim().toLowerCase(),st=$("statusFilter").value;
@@ -98,7 +127,7 @@
   showApp(data.user);
  });
  $("logoutBtn").addEventListener("click",async()=>{await db.auth.signOut();records=[];selectedId=null;showLogin()});
- $("refreshBtn").addEventListener("click",loadRecords);
+ $("refreshBtn").addEventListener("click",loadRecords);\n $("refreshPartners").addEventListener("click",loadPartnerRecords);\n $("partnerSearch").addEventListener("input",renderPartnerRecords);\n $("partnerStatusFilter").addEventListener("change",renderPartnerRecords);
  $("searchInput").addEventListener("input",render);
  $("statusFilter").addEventListener("change",render);
  $("exportBtn").addEventListener("click",()=>{
