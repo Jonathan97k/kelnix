@@ -62,3 +62,20 @@
  .room-web-design .hero-visual{border-width:5px}
  .room-automation .hero-visual{width:100%!important}
 }
+
+
+/* Services hub: animated global connection globe */
+body:not([class*="room-"]) .hero .wrap{min-height:540px;padding-right:430px}
+.global-network{position:absolute;right:-12px;top:50%;width:475px;max-width:48%;transform:translateY(-48%);aspect-ratio:1;display:grid;place-items:center;pointer-events:none}
+.globe-art{width:100%;height:auto;overflow:visible;animation:globeFloat 7s ease-in-out infinite}
+.global-network:before,.global-network:after{content:"";position:absolute;border:1px solid #8fd9ef18;border-radius:50%;inset:4%;animation:orbitPulse 5s ease-in-out infinite}
+.global-network:after{inset:-2%;border-style:dashed;border-color:#d7b56f20;animation:orbitSpin 48s linear infinite}
+.network-label{position:absolute;font-size:.57rem;letter-spacing:.16em;font-weight:800;color:#c3d6e1;white-space:nowrap}
+.network-label span{display:inline-block;width:6px;height:6px;border-radius:50%;background:#e8c783;box-shadow:0 0 12px #e8c783;margin-right:7px}
+.label-west{left:0;top:34%}.label-europe{right:1%;top:22%}.label-asia{right:-1%;bottom:29%}.label-africa{left:3%;bottom:22%}
+@keyframes globeFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes orbitPulse{0%,100%{transform:scale(.97);opacity:.35}50%{transform:scale(1.025);opacity:.8}}
+@keyframes orbitSpin{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.globe-art,.global-network:before,.global-network:after{animation:none!important}.globe-art animateMotion{display:none}}
+@media(max-width:1000px){body:not([class*="room-"]) .hero .wrap{padding-right:300px;min-height:500px}.global-network{width:350px;max-width:44%}}
+@media(max-width:760px){body:not([class*="room-"]) .hero .wrap{padding-right:0;min-height:0}.global-network{position:relative;right:auto;top:auto;transform:none;width:min(100%,430px);max-width:100%;margin:28px auto -10px}.label-west{left:2%}.label-europe{right:2%}}
