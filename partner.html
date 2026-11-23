@@ -62,7 +62,7 @@
 <div class="f-field"><label for="email">Email address *</label><input id="email" name="email" type="email" required maxlength="254" autocomplete="email" placeholder="you@company.com"></div>
 <div class="f-field"><label for="phone">Phone / WhatsApp</label><input id="phone" name="phone" type="tel" maxlength="50" autocomplete="tel" placeholder="Include country code"></div>
 <div class="f-field"><label for="role">Your role *</label><select id="role" name="role" required><option value="">Select your role</option><option value="buyer">Buyer / acquisition team</option><option value="rights_holder">Developer / studio / rights holder</option><option value="technology_partner">Technology / delivery partner</option><option value="business_client">Business seeking KELNIX services</option><option value="service_provider">Service provider / freelancer</option><option value="other">Other</option></select></div>
-<div class="f-field"><label for="country">Country *</label><input id="country" name="country" required maxlength="100" autocomplete="country-name" placeholder="Your country"></div>
+<div class="f-field"><label for="country">Country *</label><input id="country" name="country" required maxlength="100" list="countryOptions" autocomplete="country-name" placeholder="Search or select your country" aria-describedby="countryHint"><datalist id="countryOptions"></datalist><input type="hidden" id="countryCode" name="country_code"><small id="countryHint" style="color:#718294;font-size:.72rem">We will try to detect your country automatically. You can search and change it.</small></div>
 <div class="f-field full"><label for="profile">Company website or professional profile</label><input id="profile" name="profile" type="url" maxlength="500" placeholder="https:// (optional)"></div>
 <div class="f-field full"><label for="interest">What are you interested in? *</label><select id="interest" name="interest" required><option value="">Choose an area</option><option>Private software repositories / codebases</option><option>Unity / Unreal Engine game projects</option><option>Digital assets / data sourcing</option><option>Website or software development</option><option>AI and business automation</option><option>Data analytics and reporting</option><option>Video clipping / content operations</option><option>Business or referral partnership</option><option>Other</option></select></div>
 <div class="f-field"><label for="timeline">When do you expect to proceed?</label><select id="timeline" name="timeline"><option value="Flexible / exploratory">Flexible / exploratory</option><option value="Within 30 days">Within 30 days</option><option value="Within 1–3 months">Within 1–3 months</option><option value="More than 3 months">More than 3 months</option></select></div>
@@ -79,6 +79,35 @@
 <footer class="p-footer"><div class="container footer-bottom"><span>© <span id="year"></span> KELNIX Technologies. All rights reserved.</span><span><a href="/privacy">Privacy notice</a> · <a href="/terms">Terms of use</a> · <a href="mailto:info.kelnix@gmail.com">info.kelnix@gmail.com</a></span></div></footer>
 <script src="/script.js" defer></script>
 <script>
+// Populate a searchable country list and suggest the visitor's country by IP.
+(async function initialiseCountryField(){
+ const countryInput=document.getElementById("country");
+ const countryCodeInput=document.getElementById("countryCode");
+ const countryOptions=document.getElementById("countryOptions");
+ const countriesByName=new Map();
+ try{
+   const listResponse=await fetch("https://cdn.jsdelivr.net/npm/country-list@2.3.0/data.json",{cache:"force-cache"});
+   if(!listResponse.ok)throw new Error("Country list unavailable");
+   const countries=await listResponse.json();
+   countries.sort((a,b)=>a.name.localeCompare(b.name));
+   for(const country of countries){
+     const option=document.createElement("option");
+     option.value=country.name;
+     countryOptions.appendChild(option);
+     countriesByName.set(country.name.toLocaleLowerCase(),country.code);
+   }
+ }catch(error){console.warn("Country list unavailable; manual country entry remains available.",error);}
+ countryInput.addEventListener("input",()=>{countryCodeInput.value=countriesByName.get(countryInput.value.trim().toLocaleLowerCase())||"";});
+ if(!countryInput.value){
+   try{
+     const response=await fetch("https://ipwho.is/?fields=success,country,country_code",{cache:"no-store"});
+     if(!response.ok)throw new Error("Country detection unavailable");
+     const data=await response.json();
+     if(data.success&&data.country&&!countryInput.value){countryInput.value=data.country;countryCodeInput.value=data.country_code||"";}
+   }catch(error){console.info("Automatic country detection unavailable; select a country manually.");}
+ }
+})();
+
 document.getElementById("visitorForm").addEventListener("submit", async function(event) {
  event.preventDefault();
  const form=this, button=document.getElementById("submitVisitor"), status=document.getElementById("formStatus");
@@ -94,6 +123,7 @@ document.getElementById("visitorForm").addEventListener("submit", async function
  };
  const payload={
    name:values.name,company:values.company,email:values.email,phone:values.phone,
+   country:values.country,country_code:values.country_code,source_note:values.source_note,
    role:values.role,interest:values.interest,details:values.details,timeline:values.timeline,
    privacy_consent:true,device,page_url:location.href,referrer_url:document.referrer||"",
    website_trap:values.website_trap
