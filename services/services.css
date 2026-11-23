@@ -79,3 +79,23 @@ body:not([class*="room-"]) .hero .wrap{min-height:540px;padding-right:430px}
 @media(prefers-reduced-motion:reduce){.globe-art,.global-network:before,.global-network:after{animation:none!important}.globe-art animateMotion{display:none}}
 @media(max-width:1000px){body:not([class*="room-"]) .hero .wrap{padding-right:300px;min-height:500px}.global-network{width:350px;max-width:44%}}
 @media(max-width:760px){body:not([class*="room-"]) .hero .wrap{padding-right:0;min-height:0}.global-network{position:relative;right:auto;top:auto;transform:none;width:min(100%,430px);max-width:100%;margin:28px auto -10px}.label-west{left:2%}.label-europe{right:2%}}
+
+
+/* Realistic, larger NASA Blue Marble globe for the services hub */
+body:not([class*="room-"]) .hero .wrap{min-height:650px;padding-right:590px}
+.global-network{width:630px;max-width:56%;right:-42px;top:50%;aspect-ratio:1;filter:drop-shadow(0 28px 48px #0008)}
+.earth-sphere{position:relative;width:88%;aspect-ratio:1;border-radius:50%;overflow:visible;isolation:isolate;box-shadow:inset -32px -12px 48px #020b18b8,0 0 0 1px #a9e5ff65,0 0 34px #4dbce75c,0 0 90px #3e9fc72b;animation:earthDrift 8s ease-in-out infinite}
+.earth-map{position:absolute;inset:0;border-radius:50%;overflow:hidden;background-color:#061b35;background-image:url("https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-base/july/world.200407.3x5400x2700.jpg");background-repeat:repeat-x;background-size:200% 100%;background-position:0 center;animation:earthRotate 42s linear infinite;box-shadow:inset -35px -8px 50px #020814a8,inset 8px 4px 22px #d2f4ff28}
+.earth-clouds{position:absolute;inset:-1%;border-radius:50%;pointer-events:none;background:radial-gradient(ellipse at 35% 24%,#ffffff38 0 2%,transparent 17%),radial-gradient(ellipse at 63% 55%,#ffffff22 0 3%,transparent 20%),radial-gradient(ellipse at 47% 78%,#ffffff20 0 2%,transparent 16%);mix-blend-mode:screen;opacity:.68;filter:blur(5px)}
+.earth-shading{position:absolute;inset:0;border-radius:50%;background:linear-gradient(105deg,transparent 25%,#020a19a8 82%,#010712d9 100%),radial-gradient(ellipse at 28% 22%,#ffffff25,transparent 45%);box-shadow:inset -28px -4px 38px #020713a8;pointer-events:none}
+.earth-atmosphere{position:absolute;inset:-2.6%;border-radius:50%;border:2px solid #9ce4ff72;box-shadow:0 0 12px #71d4ff8a,inset 0 0 15px #6fcaff35,0 0 44px #45b5ef35;pointer-events:none}
+.earth-routes{position:absolute;inset:0;width:100%;height:100%;overflow:visible;filter:drop-shadow(0 0 5px #f5cb76)}
+.global-network:before{inset:0;border-color:#9de5ff18;animation:orbitPulse 4s ease-in-out infinite}
+.global-network:after{inset:-5%;border-color:#d7b56f2c}
+.network-label{z-index:3;text-shadow:0 2px 8px #071522}
+.label-west{left:-1%;top:33%}.label-europe{right:-2%;top:20%}.label-asia{right:-5%;bottom:27%}.label-africa{left:0;bottom:20%}
+@keyframes earthRotate{from{background-position:0 center}to{background-position:200% center}}
+@keyframes earthDrift{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-12px) rotate(1deg)}}
+@media(max-width:1000px){body:not([class*="room-"]) .hero .wrap{padding-right:390px;min-height:590px}.global-network{width:440px;max-width:49%;right:-18px}}
+@media(max-width:760px){body:not([class*="room-"]) .hero .wrap{padding-right:0;min-height:0}.global-network{position:relative;right:auto;top:auto;transform:none;width:min(100%,520px);max-width:100%;margin:34px auto 0}.earth-sphere{width:86%}.network-label{font-size:.52rem}.label-west{left:0}.label-europe{right:0}}
+@media(prefers-reduced-motion:reduce){.earth-map,.earth-sphere{animation:none!important}.earth-routes animateMotion{display:none}}
