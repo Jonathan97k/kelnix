@@ -733,3 +733,17 @@ body.globe-watermark-mode .global-network:after{
 @media(max-width:760px){.repo-hero{padding-top:57px}.repo-hero-grid{grid-template-columns:1fr;gap:30px;padding-bottom:43px}.repo-page .repo-hero h1{font-size:clamp(3rem,9.5vw,4.5rem)}.repo-hero-visual{min-height:440px;margin:0 8px}.repo-console{max-width:560px}.repo-float-note{left:-8px;bottom:14px}.repo-position,.repo-capabilities,.repo-specialisms,.repo-criteria,.repo-method,.repo-governance,.repo-faq{padding:66px 0}.repo-position-grid,.repo-special-grid,.repo-criteria-grid,.repo-governance-grid,.repo-faq-grid{grid-template-columns:1fr;gap:30px}.repo-section-head{display:block}.repo-section-head>p{margin-top:14px}.repo-cap-grid{grid-template-columns:repeat(2,1fr)}.repo-timeline{grid-template-columns:repeat(2,1fr)}.repo-timeline article:nth-child(3),.repo-timeline article:nth-child(5){border-left:0;padding-left:0}.repo-timeline article:nth-child(4){border-left:1px solid #ffffff1a;padding-left:17px}.repo-governance-visual{height:350px}.repo-final-inner{grid-template-columns:1fr}.repo-final-foot{grid-column:auto}}
 @media(max-width:540px){.repo-hero{padding-top:48px}.repo-page .repo-hero h1{font-size:clamp(2.7rem,12vw,3.7rem)}.repo-lead{font-size:.81rem}.repo-hero-actions{align-items:flex-start;flex-direction:column;gap:16px}.repo-hero-tags{font-size:.43rem;gap:7px}.repo-hero-visual{min-height:390px;margin:0}.repo-console-head{padding:0 12px;height:57px}.repo-console-brand b{font-size:.53rem}.repo-console-state{font-size:.37rem}.repo-console-body{padding:12px}.repo-meta-grid{gap:11px}.repo-check{padding:8px 0}.repo-check b{font-size:.52rem}.repo-check small{font-size:.43rem}.repo-float-note{left:-5px;bottom:4px;min-width:215px;padding:10px}.repo-visual-coordinate{right:-10px}.repo-hero-bottom{font-size:.42rem;gap:10px}.repo-position h2,.repo-section-head h2,.repo-special-copy h2,.repo-criteria h2,.repo-governance h2,.repo-faq h2,.repo-final h2{font-size:2.35rem}.repo-cap-grid{grid-template-columns:1fr}.repo-cap{min-height:0;padding:20px}.repo-cap-icon{margin:17px 0 13px}.repo-timeline{grid-template-columns:1fr}.repo-timeline article,.repo-timeline article+article,.repo-timeline article:nth-child(4){padding:18px 0 0;border-left:0;border-top:1px solid #ffffff1b}.repo-timeline article:first-child{border-top:0}.repo-metric{padding:15px 13px}.repo-metric b{font-size:1.9rem}.repo-metric p{font-size:.56rem}.repo-governance-visual{height:315px}.repo-final{padding:54px 0}.repo-final-foot{gap:12px;flex-wrap:wrap}}
 @media(prefers-reduced-motion:reduce){.repo-cap,.repo-btn{transition:none}}
+
+
+/* Repository page readability: a subtle one-pixel typography increase. */
+.repo-page p,
+.repo-page li,
+.repo-page small,
+.repo-page summary,
+.repo-page .repo-breadcrumb,
+.repo-page .repo-hero-tags,
+.repo-page .repo-hero-bottom,
+.repo-page .repo-btn,
+.repo-page .repo-link {
+  font-size: calc(1em + 1px);
+}
